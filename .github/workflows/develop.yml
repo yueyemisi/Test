@@ -23,5 +23,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
+      - name: set up mvnd
+        run: |
+          apt install -y wget unzip
+          wget https://github.com/apache/maven-mvnd/releases/download/0.7.1/mvnd-0.7.1-linux-amd64.zip
+          unzip mvnd-0.7.1-linux-amd64.zip
+          git --version
       - name: Build and test the project
         run: mvn clean install
